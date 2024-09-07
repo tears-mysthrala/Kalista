@@ -11,7 +11,9 @@ export default function Home() {
   return (
     <div className="min-h-screen p-8 pb-20 font-[family-name:var(--font-geist-sans)]">
       <VisitTracker />
-      {/* Resto del código sin cambios */}
+      <h1 className="text-4xl font-bold mb-4">Bienvenido a mi sitio</h1>
+      {/* Aquí puedes agregar más contenido */}
+      <ContactForm />
     </div>
   );
 }
