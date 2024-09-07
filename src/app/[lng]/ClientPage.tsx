@@ -1,14 +1,20 @@
+'use client';
+
 import React from 'react';
 
 function ClientPage() {
   // ... otro código ...
 
-  if (condición) {
+  const condicion = true; // Definimos la variable condición
+
+  if (condicion) {
     return null;
   }
     
   return (
-    // ... JSX aquí ...
+    <div>
+      {/* ... resto del JSX ... */}
+    </div>
   );
 }
 
