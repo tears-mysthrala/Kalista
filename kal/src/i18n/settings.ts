@@ -1,13 +1,18 @@
-export const fallbackLng = 'en'
-export const languages = ['en', 'es', 'fr', 'eu', 'zh']
+import { InitOptions } from 'i18next'
 
-export function getOptions (lng = fallbackLng, ns = 'common') {
+export const fallbackLng = 'en'
+export const languages = [fallbackLng, 'es']
+export const defaultNS = 'common'
+
+export function getOptions(lng = fallbackLng, ns = defaultNS): InitOptions {
   return {
     supportedLngs: languages,
     fallbackLng,
     lng,
-    fallbackNS: 'common',
-    defaultNS: 'common',
+    fallbackNS: defaultNS,
+    defaultNS,
     ns
   }
 }
+
+// No exportamos i18n directamente desde aquí

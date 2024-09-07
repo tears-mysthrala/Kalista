@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import './globals.css';
+import './globals.css';  // Asegúrate de que este archivo exista y contenga los estilos globales
 import { dir } from 'i18next'
 import { languages } from '../i18n/settings'
 
@@ -30,22 +30,14 @@ export async function generateStaticParams() {
 
 export default function RootLayout({
   children,
-  params: { lng }
+  params: { lng },
 }: {
   children: React.ReactNode
   params: { lng: string }
 }) {
   return (
-    <html lang={lng} dir={dir(lng)}>
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <a href="#main-content" className="sr-only focus:not-sr-only">
-          Saltar al contenido principal
-        </a>
-        {children}
-      </body>
+    <html lang={lng} dir={dir(lng)} className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body>{children}</body>
     </html>
   );
 }

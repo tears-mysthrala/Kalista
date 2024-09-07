@@ -1,8 +1,0 @@
-{
-  "compilerOptions": {
-    // ... otras opciones ...
-    "jsx": "preserve",
-    "resolveJsonModule": true,
-    "esModuleInterop": true
-  }
-}

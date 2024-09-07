@@ -1,34 +1,34 @@
-import { Label } from "@radix-ui/react-label"
-import { Progress } from "@radix-ui/react-progress"
-import { useTranslation } from 'react-i18next';
+import React from 'react';
+import { TFunction } from 'i18next';
 
 interface AboutProps {
   darkMode: boolean;
+  t: TFunction;
 }
 
-export default function About({ darkMode }: AboutProps) {
-  const { t } = useTranslation('common');
-
+const About: React.FC<AboutProps> = ({ darkMode, t }) => {
   return (
-    <section id="about" className={`mb-12 ${darkMode ? 'bg-gray-800' : 'bg-white'} p-6 rounded-lg shadow-md`}>
-      <h2 className={`text-2xl font-semibold mb-4 ${darkMode ? 'text-blue-400' : 'text-blue-600'}`}>{t('about')}</h2>
-      <p className={`${darkMode ? 'text-gray-300' : 'text-gray-700'} mb-4`}>
-        {t('aboutDescription')}
-      </p>
-      <div className="space-y-4">
-        <div>
-          <Label htmlFor="skill1" className={`${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>{t('frontendDevelopment')}</Label>
-          <Progress id="skill1" value={90} max={100} className={`w-full h-2 ${darkMode ? 'bg-gray-700' : 'bg-gray-200'} rounded-full overflow-hidden`}>
-            <div className="h-full bg-[#5BCEFA]" style={{ width: '90%' }}></div>
-          </Progress>
+    <div className="space-y-6 text-left">
+      <h2 className="text-4xl font-bold text-gray-900 dark:text-white">{t('about')}</h2>
+      <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">{t('aboutDescription')}</p>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+          <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">{t('frontendDevelopment')}</h3>
+          <p className="text-gray-700 dark:text-gray-300 mb-2">{t('frontendDescription')}</p>
+          <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+            <div className="bg-blue-600 h-2.5 rounded-full" style={{width: "85%"}}></div>
+          </div>
         </div>
-        <div>
-          <Label htmlFor="skill2" className={`${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>{t('backendDevelopment')}</Label>
-          <Progress id="skill2" value={85} max={100} className={`w-full h-2 ${darkMode ? 'bg-gray-700' : 'bg-gray-200'} rounded-full overflow-hidden`}>
-            <div className="h-full bg-[#F5A9B8]" style={{ width: '85%' }}></div>
-          </Progress>
+        <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+          <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">{t('backendDevelopment')}</h3>
+          <p className="text-gray-700 dark:text-gray-300 mb-2">{t('backendDescription')}</p>
+          <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+            <div className="bg-green-600 h-2.5 rounded-full" style={{width: "80%"}}></div>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
   );
-}
+};
+
+export default About;
