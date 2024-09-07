@@ -2,5 +2,11 @@
   "buildCommand": "npm run build",
   "outputDirectory": "public",
   "devCommand": "npm run dev",
-  "installCommand": "npm install"
+  "installCommand": "npm install",
+  "crons": [
+    {
+      "path": "/api/send-report",
+      "schedule": "0 0 * * *"
+    }
+  ]
 }
