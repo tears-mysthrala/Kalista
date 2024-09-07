@@ -2,7 +2,11 @@
 
 import { useState } from 'react';
 
-export default function ContactForm() {
+interface ContactFormProps {
+  darkMode: boolean;
+}
+
+export default function ContactForm({ darkMode }: ContactFormProps) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
@@ -33,42 +37,44 @@ export default function ContactForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div>
-        <label htmlFor="name" className="block mb-2">Nombre</label>
+        <label htmlFor="name" className={`block mb-2 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>Nombre</label>
         <input
           type="text"
           id="name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          name="name"
           required
-          className="w-full p-2 border rounded"
+          autoComplete="name"
+          className={`w-full p-2 rounded-md ${darkMode ? 'bg-gray-700 text-gray-300' : 'bg-gray-100 text-gray-900'}`}
         />
       </div>
       <div>
-        <label htmlFor="email" className="block mb-2">Email</label>
+        <label htmlFor="email" className={`block mb-2 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>Email</label>
         <input
           type="email"
           id="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          name="email"
           required
-          className="w-full p-2 border rounded"
+          autoComplete="email"
+          className={`w-full p-2 rounded-md ${darkMode ? 'bg-gray-700 text-gray-300' : 'bg-gray-100 text-gray-900'}`}
         />
       </div>
       <div>
-        <label htmlFor="message" className="block mb-2">Mensaje</label>
+        <label htmlFor="message" className={`block mb-2 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>Mensaje</label>
         <textarea
           id="message"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
+          name="message"
           required
-          className="w-full p-2 border rounded"
           rows={4}
+          className={`w-full p-2 rounded-md ${darkMode ? 'bg-gray-700 text-gray-300' : 'bg-gray-100 text-gray-900'}`}
         ></textarea>
       </div>
-      <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+      <button
+        type="submit"
+        className={`px-4 py-2 rounded-md ${darkMode ? 'bg-blue-600 hover:bg-blue-700' : 'bg-blue-500 hover:bg-blue-600'} text-white`}
+      >
         Enviar
       </button>
-      {status && <p className="mt-4 text-center">{status}</p>}
+      {status && <p className={`mt-4 text-center ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>{status}</p>}
     </form>
   );
 }

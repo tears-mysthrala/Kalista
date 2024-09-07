@@ -1,0 +1,19 @@
+{
+  "title": "Unai Kalista Urzainqui",
+  "description": "Desarrollador Full Stack | Ingeniero de Software",
+  "about": "Sobre Mí",
+  "projects": "Proyectos",
+  "contact": "Contacto",
+  "aboutDescription": "Soy un desarrollador Full Stack con experiencia en tecnologías como React, Node.js, y bases de datos SQL y NoSQL. Me apasiona crear soluciones innovadoras y eficientes para problemas complejos.",
+  "frontendDevelopment": "Desarrollo Frontend",
+  "backendDevelopment": "Desarrollo Backend",
+  "elearningPlatform": "Plataforma de E-learning",
+  "elearningDescription": "Desarrollo de una plataforma de aprendizaje en línea con cursos interactivos y seguimiento de progreso personalizado.",
+  "taskManagementApp": "App de Gestión de Tareas",
+  "taskManagementDescription": "Creación de una aplicación móvil para la gestión eficiente de tareas y proyectos, con integración de IA para sugerencias de productividad.",
+  "name": "Nombre",
+  "email": "Email",
+  "message": "Mensaje",
+  "send": "Enviar",
+  "copyright": "© 2024 Unai Kalista Urzainqui. Todos los derechos reservados."
+}

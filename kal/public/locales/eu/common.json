@@ -1,0 +1,19 @@
+{
+  "title": "Unai Kalista Urzainqui",
+  "description": "Full Stack Garatzailea | Software Ingeniaria",
+  "about": "Niri Buruz",
+  "projects": "Proiektuak",
+  "contact": "Kontaktua",
+  "aboutDescription": "Full Stack garatzailea naiz, React, Node.js eta SQL eta NoSQL datu-baseetan esperientzia dudana. Arazo konplexuentzako konponbide berritzaile eta eraginkorrak sortzeko pasioa dut.",
+  "frontendDevelopment": "Frontend Garapena",
+  "backendDevelopment": "Backend Garapena",
+  "elearningPlatform": "E-learning Plataforma",
+  "elearningDescription": "Ikastaro interaktiboak eta aurrerapen pertsonalizatuen jarraipena dituen online ikaskuntza plataforma baten garapena.",
+  "taskManagementApp": "Ataza Kudeaketa Aplikazioa",
+  "taskManagementDescription": "Atazak eta proiektuak modu eraginkorrean kudeatzeko mugikorrerako aplikazio baten sorrera, produktibitate iradokizunetarako AI integrazioarekin.",
+  "name": "Izena",
+  "email": "Emaila",
+  "message": "Mezua",
+  "send": "Bidali",
+  "copyright": "© 2024 Unai Kalista Urzainqui. Eskubide guztiak erreserbatuta."
+}

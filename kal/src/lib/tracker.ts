@@ -59,3 +59,10 @@ function countVisits(since: Date) {
     languages: languageCounts,
   };
 }
+
+export interface VisitStats {
+  daily: ReturnType<typeof countVisits>;
+  weekly: ReturnType<typeof countVisits>;
+  monthly: ReturnType<typeof countVisits>;
+  yearly: ReturnType<typeof countVisits>;
+}

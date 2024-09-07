@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
   images: {
     unoptimized: true,
   },
@@ -10,7 +9,6 @@ const nextConfig = {
     EMAIL_PASS: process.env.EMAIL_PASS,
     RECIPIENT_EMAIL: process.env.RECIPIENT_EMAIL,
   },
-  trailingSlash: true,
 }
 
 module.exports = nextConfig

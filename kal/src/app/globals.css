@@ -5,12 +5,16 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --scroll-thumb-color: #5BCEFA;
+  --scroll-track-color: #F5A9B8;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --scroll-thumb-color: #F5A9B8;
+    --scroll-track-color: #1a202c;
   }
 }
 
@@ -89,4 +93,65 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Estilos para el scroll */
+:root {
+  --scroll-thumb-color: #5BCEFA;
+  --scroll-track-color: #F5A9B8;
+}
+
+.dark {
+  --scroll-thumb-color: #F5A9B8;
+  --scroll-track-color: #1a202c;
+}
+
+/* Estilos para Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scroll-thumb-color) var(--scroll-track-color);
+}
+
+/* Estilos para Chrome, Edge, y Safari */
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--scroll-track-color);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-thumb-color);
+  border-radius: 20px;
+  border: 3px solid var(--scroll-track-color);
+}
+
+/* Asegurarse de que el contenido principal tenga scroll */
+html, body {
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* Añade esto al final del archivo */
+body {
+  direction: ltr;
+}
+
+/* Estilos para el scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
