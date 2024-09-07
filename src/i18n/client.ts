@@ -1,8 +1,8 @@
 import i18next from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
-// Importación dinámica para evitar errores de compilación
-const en = () => import('../locales/en.json');
+// Importación estática del archivo de localización
+import en from '../locales/en.json';
 
 i18next
   .use(initReactI18next)

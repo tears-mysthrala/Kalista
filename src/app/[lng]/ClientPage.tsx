@@ -13,7 +13,8 @@ function ClientPage() {
     
   return (
     <div>
-      {/* ... resto del JSX ... */}
+      {/* Aquí va el contenido del componente */}
+      <p>Contenido del ClientPage</p>
     </div>
   );
 }
