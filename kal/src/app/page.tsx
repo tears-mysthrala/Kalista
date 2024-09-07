@@ -3,8 +3,8 @@ import { Label } from "@radix-ui/react-label"
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@radix-ui/react-navigation-menu"
 import { Progress } from "@radix-ui/react-progress"
 import dynamic from 'next/dynamic'
-import { trackVisit } from '../lib/tracker';
 import { headers } from 'next/headers';
+import { trackVisit } from '../lib/tracker';
 
 interface CustomRequest {
   geo: { country: string | null };
@@ -17,7 +17,7 @@ export default function Home() {
   trackVisit({
     geo: { country: headers().get('x-vercel-ip-country') || 'Unknown' },
     headers: headers()
-  } as CustomRequest);
+  });
 
   return (
     <div className="min-h-screen p-8 pb-20 font-[family-name:var(--font-geist-sans)]">

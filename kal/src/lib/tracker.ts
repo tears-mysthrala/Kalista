@@ -1,5 +1,12 @@
 import { NextRequest } from 'next/server';
 
+interface CustomRequest {
+  geo?: { country: string | null };
+  headers: {
+    get(name: string): string | null;
+  };
+}
+
 interface Visit {
   country: string;
   language: string;
@@ -8,7 +15,7 @@ interface Visit {
 
 const visits: Visit[] = [];
 
-export function trackVisit(req: NextRequest) {
+export function trackVisit(req: CustomRequest) {
   const country = req.geo?.country || 'Unknown';
   const language = req.headers.get('accept-language')?.split(',')[0] || 'Unknown';
   
