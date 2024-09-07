@@ -1,4 +1,6 @@
 {
-  "hello": "Hello",
-  "world": "World"
+  "welcome": "Bienvenido",
+  "about": "Acerca de",
+  "projects": "Proyectos",
+  "contact": "Contacto"
 }

@@ -39,6 +39,10 @@ export default function ClientPage({ lng }: { lng: string }) {
   }
 
   return (
-    // ... resto del JSX ...
+    <div>
+      {/* Tu contenido JSX va aquí */}
+      <h1>{t('welcome')}</h1>
+      {/* Agrega el resto de tus componentes y JSX */}
+    </div>
   );
 }
