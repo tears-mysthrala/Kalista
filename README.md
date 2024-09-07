@@ -15,6 +15,16 @@ The main goal of this project is to centralize and organize all the necessary st
 ### Note
 This is a personal project and the contents are tailored to my specific needs. However, feel free to use it as inspiration or a starting point for your own journey.
 
+## Deployment
+
+This project is automatically deployed to Vercel when changes are pushed to the main branch. The deployment is handled by a GitHub Actions workflow.
+
+To set up the deployment:
+
+1. Create a Vercel account and link your GitHub repository.
+2. Generate a Vercel token from your account settings.
+3. Add the Vercel token as a secret named `VERCEL_TOKEN` in your GitHub repository settings.
+
 ---
 
 ## Español
