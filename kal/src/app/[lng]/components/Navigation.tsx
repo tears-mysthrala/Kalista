@@ -2,6 +2,8 @@ import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMe
 import { useTranslation } from 'react-i18next';
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion';
+import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 interface NavigationProps {
   darkMode: boolean;
@@ -18,6 +20,7 @@ interface NavigationProps {
 
 export default function Navigation({ darkMode, toggleDarkMode, changeLanguage, lng, isMenuOpen, toggleMenu, isMobile, styles }: NavigationProps) {
   const { t } = useTranslation('common');
+  const router = useRouter();
 
   return (
     <nav className={`sticky top-4 z-50 ${darkMode ? 'bg-gray-800' : 'bg-white'} shadow-lg rounded-lg p-4 border-t-4 border-[#5BCEFA] border-b-4 border-b-[#F5A9B8] w-[calc(100%-2rem)] max-w-4xl mx-auto`}>
