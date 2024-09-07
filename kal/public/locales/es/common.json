@@ -1,7 +1,7 @@
 {
   "title": "Unai Kalista Urzainqui",
   "description": "Desarrollador Full Stack | Ingeniero de Software",
-  "about": "Sobre Mí",
+  "about": "Sobre mí",
   "projects": "Proyectos",
   "contact": "Contacto",
   "aboutDescription": "Soy un desarrollador Full Stack con experiencia en tecnologías como React, Node.js, y bases de datos SQL y NoSQL. Me apasiona crear soluciones innovadoras y eficientes para problemas complejos.",
@@ -15,5 +15,10 @@
   "email": "Email",
   "message": "Mensaje",
   "send": "Enviar",
-  "copyright": "© 2023 Tu Nombre. Todos los derechos reservados."
+  "copyright": "© 2024 Unai Kalista Urzainqui. Todos los derechos reservados.",
+  "language": {
+    "en": "Inglés",
+    "es": "Español",
+    "eu": "Euskera"
+  }
 }

@@ -1,4 +1,3 @@
-import { dir } from 'i18next'
 import { languages } from '../../i18n/settings'
 
 export async function generateStaticParams() {
@@ -13,7 +12,7 @@ export default function Layout({
   params: { lng: string }
 }) {
   return (
-    <html lang={lng} dir={dir(lng)}>
+    <html lang={lng}>
       <body>{children}</body>
     </html>
   )

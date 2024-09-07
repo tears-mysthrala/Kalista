@@ -9,6 +9,12 @@
   padding: 0;
 }
 
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   line-height: 1.5;
 }
@@ -19,23 +25,21 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  @apply bg-gray-200 dark:bg-gray-700;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #55CDFC 33.33%, #FFFFFF 33.33% 66.66%, #F7A8B8 66.66%);
-  border-radius: 6px;
+  @apply bg-pink-400 dark:bg-blue-400 rounded-full;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, #44BCEB 33.33%, #EEEEEE 33.33% 66.66%, #E697A7 66.66%);
+  @apply bg-pink-500 dark:bg-blue-500;
 }
 
-/* Modo oscuro para el scrollbar */
-@media (prefers-color-scheme: dark) {
-  ::-webkit-scrollbar-track {
-    background: #2d3748;
-  }
+/* Asegurarse de que el scrollbar esté siempre visible y a la derecha */
+html {
+  overflow-y: scroll;
+  direction: ltr;
 }
 
 /* Aquí puedes agregar estilos globales adicionales si es necesario */

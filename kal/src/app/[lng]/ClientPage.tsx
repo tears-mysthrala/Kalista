@@ -15,9 +15,9 @@ interface ComponentProps {
   t: TFunction;
 }
 
-const AboutComponent = dynamic<ComponentProps>(() => import('./components/About').then(mod => ({ default: mod.default as React.ComponentType<ComponentProps> })));
-const ProjectsComponent = dynamic<ComponentProps>(() => import('./components/Projects').then(mod => ({ default: mod.default as React.ComponentType<ComponentProps> })));
-const ContactFormComponent = dynamic<ComponentProps>(() => import('../../components/ContactForm').then(mod => ({ default: mod.default as React.ComponentType<ComponentProps> })), { ssr: false });
+const AboutComponent = dynamic<ComponentProps>(() => import('./components/About'));
+const ProjectsComponent = dynamic<ComponentProps>(() => import('./components/Projects'));
+const ContactFormComponent = dynamic<ComponentProps>(() => import('../../components/ContactForm'), { ssr: false });
 const VisitTracker = dynamic(() => import('../../components/VisitTracker'), { ssr: false });
 
 export default function ClientPage({ lng }: { lng: string }) {
@@ -87,63 +87,73 @@ export default function ClientPage({ lng }: { lng: string }) {
   }
 
   return (
-    <div className={`${styles.container} ${darkMode ? 'dark' : ''} bg-white dark:bg-gray-900 text-gray-900 dark:text-white min-h-screen`}>
-      <div 
-        className="fixed inset-0 z-0 pointer-events-none" 
-        style={{ 
-          backgroundImage: "url('/logo.svg')",
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center',
-          backgroundSize: 'contain',
-          opacity: 0.45,
-          filter: darkMode 
-            ? 'drop-shadow(0 0 1.5rem rgba(255, 255, 255, 0.4))' 
-            : 'drop-shadow(0 0 1.5rem rgba(0, 0, 0, 0.4))',
-          transform: 'scale(4)',
-          transformOrigin: 'center'
-        }} 
-      />
-      
-      <VisitTracker />
-      
-      <div className="relative z-10 flex flex-col min-h-screen">
-        <Navigation 
-          darkMode={darkMode} 
-          toggleDarkMode={toggleDarkMode} 
-          changeLanguage={changeLanguage} 
-          lng={lng} 
-          isMenuOpen={isMenuOpen} 
-          toggleMenu={toggleMenu} 
-          isMobile={isMobile} 
-          styles={styles}
+    <>
+      <div className={`${styles.container} ${darkMode ? styles.containerDark : styles.containerLight} min-h-screen w-full`}>
+        <div 
+          className="fixed inset-0 z-0 pointer-events-none" 
+          style={{ 
+            backgroundImage: "url('/logo.svg')",
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center',
+            backgroundSize: 'contain',
+            opacity: 0.45,
+            filter: darkMode 
+              ? 'drop-shadow(0 0 1.5rem rgba(255, 255, 255, 0.4))' 
+              : 'drop-shadow(0 0 1.5rem rgba(0, 0, 0, 0.4))',
+            transform: 'scale(4)',
+            transformOrigin: 'center'
+          }} 
         />
+        
+        <VisitTracker />
+        
+        <div className="relative z-10 flex flex-col min-h-screen items-center">
+          <Navigation 
+            darkMode={darkMode} 
+            toggleDarkMode={toggleDarkMode} 
+            changeLanguage={changeLanguage} 
+            lng={lng} 
+            isMenuOpen={isMenuOpen} 
+            toggleMenu={toggleMenu} 
+            isMobile={isMobile} 
+            styles={styles}
+          />
 
-        <main className="flex-grow container mx-auto px-4 py-8">
-          <section id="about" className="mb-16 text-left">
-            <AboutComponent darkMode={darkMode} t={t} />
-          </section>
-          <section id="projects" className="mb-16 text-left">
-            <ProjectsComponent darkMode={darkMode} t={t} />
-          </section>
-          <section id="contact" className="mb-16 text-left">
-            <ContactFormComponent darkMode={darkMode} t={t} />
-          </section>
-        </main>
+          <main className="flex-grow w-full max-w-[80%] mx-auto px-4 py-8" style={{ maxWidth: '1200px' }}>
+            <h1 className="text-4xl font-bold text-center mb-12">{t('title')}</h1>
+            <div className="space-y-16">
+              <section className="text-left">
+                <AboutComponent darkMode={darkMode} t={t} />
+              </section>
+              <section className="text-left">
+                <ProjectsComponent darkMode={darkMode} t={t} />
+              </section>
+              <section className="text-left">
+                <ContactFormComponent darkMode={darkMode} t={t} />
+              </section>
+            </div>
+          </main>
 
-        <footer className="mt-auto py-6 text-center text-gray-500 dark:text-gray-400">
-          <p>{t('copyright')}</p>
-        </footer>
-
-        {showBackToTop && (
-          <button
-            onClick={scrollToTop}
-            className="fixed bottom-8 right-8 p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-blue-500 hover:text-white transition-colors"
-            aria-label="Volver arriba"
-          >
-            ↑
-          </button>
-        )}
+          <footer className={`w-full max-w-[80%] mx-auto py-6 text-center ${darkMode ? 'text-gray-400' : 'text-gray-500'}`} style={{ maxWidth: '1200px' }}>
+            <p>{t('copyright')}</p>
+          </footer>
+        </div>
       </div>
-    </div>
+
+      {showBackToTop && (
+        <button
+          onClick={scrollToTop}
+          className={`fixed bottom-8 right-8 p-3 rounded-full ${
+            darkMode ? 'bg-gray-700 text-gray-300' : 'bg-gray-200 text-gray-700'
+          } hover:bg-blue-500 hover:text-white transition-colors shadow-lg z-50`}
+          style={{ position: 'fixed', zIndex: 9999 }}
+          aria-label="Volver arriba"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
+          </svg>
+        </button>
+      )}
+    </>
   );
 }

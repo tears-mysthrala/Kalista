@@ -16,5 +16,10 @@
   "message": "Message",
   "send": "Send",
   "copyright": "© 2024 Unai Kalista Urzainqui. All rights reserved.",
-  "welcome": "Welcome to my website"
+  "welcome": "Welcome to my website",
+  "language": {
+    "en": "English",
+    "es": "Spanish",
+    "eu": "Basque"
+  }
 }

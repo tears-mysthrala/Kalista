@@ -1,42 +1,45 @@
 .container {
-  min-height: 100vh;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 70%;
-  background-attachment: fixed;
-  transition: background-color 0.3s ease, background-image 0.3s ease;
-}
-
-.containerLight {
-  background-color: rgba(255, 255, 255, 0.9); /* Aumentamos la opacidad para un fondo más blanco */
-  background-blend-mode: normal; /* Cambiamos a 'normal' para un efecto más limpio */
+  @apply min-h-screen;
 }
 
 .containerDark {
-  background-color: rgba(31, 41, 55, 0.55);
-  background-blend-mode: screen;
+  @apply bg-gray-900 text-white;
+}
+
+.containerLight {
+  @apply bg-white text-gray-900;
+}
+
+.nav {
+  @apply p-2 rounded-full shadow-lg;
+}
+
+.navDark {
+  @apply bg-gray-800 text-white;
+}
+
+.navLight {
+  @apply bg-white text-gray-900;
 }
 
 .logo {
-  /* Estilos comunes para el logo */
-  transition: filter 0.3s ease;
+  @apply text-2xl font-bold;
 }
 
-/* Si necesitas estilos específicos para modo claro y oscuro, usa clases en lugar de imágenes diferentes */
-.containerLight .logo {
-  /* Estilos para el logo en modo claro */
-  filter: drop-shadow(0 0 0.1rem rgba(0, 0, 0, 0.5));
+.modeToggle, .langSelect, .menuToggle {
+  @apply p-2 rounded-md;
 }
 
-.containerDark .logo {
-  /* Estilos para el logo en modo oscuro */
-  filter: drop-shadow(0 0 0.1rem rgba(255, 255, 255, 0.5));
+.navLinks {
+  @apply space-x-4;
 }
 
-.logoLight {
-  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5));
+.navLinksOpen {
+  @apply block;
 }
 
-.logoDark {
-  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.5));
+@screen md {
+  .navLinks {
+    @apply flex;
+  }
 }
