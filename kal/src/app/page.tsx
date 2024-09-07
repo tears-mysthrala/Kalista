@@ -2,9 +2,11 @@ import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar"
 import { Label } from "@radix-ui/react-label"
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@radix-ui/react-navigation-menu"
 import { Progress } from "@radix-ui/react-progress"
-import ContactForm from "../components/ContactForm"
+import dynamic from 'next/dynamic'
 import { trackVisit } from '../lib/tracker';
 import { headers } from 'next/headers';
+
+const ContactForm = dynamic(() => import('../components/ContactForm'), { ssr: false })
 
 export default function Home() {
   // Añade esta línea al principio de la función
