@@ -6,11 +6,6 @@ import dynamic from 'next/dynamic'
 import { headers } from 'next/headers';
 import { trackVisit } from '../lib/tracker';
 
-interface CustomRequest {
-  geo: { country: string | null };
-  headers: ReturnType<typeof headers>;
-}
-
 const ContactForm = dynamic(() => import('../components/ContactForm'), { ssr: false })
 
 export default function Home() {
