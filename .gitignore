@@ -10,6 +10,9 @@
 */.next/
 */out/
 
+# Excluir el directorio public de ser ignorado
+!*/public
+
 # Production
 */build
 
