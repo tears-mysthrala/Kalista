@@ -3,6 +3,12 @@
   "outputDirectory": "public",
   "devCommand": "npm run dev",
   "installCommand": "npm install",
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "/api/:path*"
+    }
+  ],
   "crons": [
     {
       "path": "/api/send-report",

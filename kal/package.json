@@ -7,7 +7,7 @@
     "build": "next build && npm run copy-public",
     "start": "next start",
     "lint": "next lint",
-    "copy-public": "cp -r dist/. public/"
+    "copy-public": "cpy '**/*' '../public' --cwd=dist --parents"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
