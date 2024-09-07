@@ -1,15 +1,14 @@
 import i18next from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
-import en from '../locales/en.json';
-// Importa otros idiomas si los tienes
+// Importación dinámica para evitar errores de compilación
+const en = () => import('../locales/en.json');
 
 i18next
   .use(initReactI18next)
   .init({
     resources: {
       en: { translation: en },
-      // Añade otros idiomas aquí
     },
     lng: 'en', // idioma por defecto
     fallbackLng: 'en',
