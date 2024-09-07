@@ -22,10 +22,12 @@ export default function Home({ params: { lng } }: { params: { lng: string } }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
     i18n.changeLanguage(lng);
     setIsLoaded(true);
+    setIsClient(true);
   }, [lng, i18n]);
 
   const changeLanguage = (newLang: string) => {
@@ -83,7 +85,7 @@ export default function Home({ params: { lng } }: { params: { lng: string } }) {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  if (!isLoaded) {
+  if (!isLoaded || !isClient) {
     return null; // o un componente de carga
   }
 
