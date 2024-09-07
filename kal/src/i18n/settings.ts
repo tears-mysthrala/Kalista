@@ -1,14 +1,13 @@
-export const fallbackLng = 'es'
-export const languages = ['es', 'en', 'fr', 'eu', 'zh']
-export const defaultNS = 'common'
+export const fallbackLng = 'en'
+export const languages = ['en', 'es', 'fr', 'eu', 'zh']
 
-export function getOptions (lng = fallbackLng, ns = defaultNS) {
+export function getOptions (lng = fallbackLng, ns = 'common') {
   return {
     supportedLngs: languages,
     fallbackLng,
     lng,
-    fallbackNS: defaultNS,
-    defaultNS,
+    fallbackNS: 'common',
+    defaultNS: 'common',
     ns
   }
 }

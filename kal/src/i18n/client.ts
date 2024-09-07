@@ -10,12 +10,7 @@ import HttpBackend from 'i18next-http-backend'
 i18next
   .use(initReactI18next)
   .use(LanguageDetector)
-  .use(
-    resourcesToBackend(
-      (language: string, namespace: string) =>
-        import(`./locales/${language}/${namespace}.json`)
-    )
-  )
+  .use(HttpBackend)
   .init({
     ...getOptions(),
     backend: {
