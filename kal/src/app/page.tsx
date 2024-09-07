@@ -6,11 +6,18 @@ import dynamic from 'next/dynamic'
 import { trackVisit } from '../lib/tracker';
 import { headers } from 'next/headers';
 
+interface CustomRequest {
+  geo: { country: string | null };
+  headers: ReturnType<typeof headers>;
+}
+
 const ContactForm = dynamic(() => import('../components/ContactForm'), { ssr: false })
 
 export default function Home() {
-  // Añade esta línea al principio de la función
-  trackVisit({ geo: { country: headers().get('x-vercel-ip-country') || 'Unknown' }, headers: headers() } as any);
+  trackVisit({
+    geo: { country: headers().get('x-vercel-ip-country') || 'Unknown' },
+    headers: headers()
+  } as CustomRequest);
 
   return (
     <div className="min-h-screen p-8 pb-20 font-[family-name:var(--font-geist-sans)]">

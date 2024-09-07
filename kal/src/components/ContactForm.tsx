@@ -20,8 +20,6 @@ export default function ContactForm() {
       body: JSON.stringify({ name, email, message }),
     });
 
-    const data = await res.json();
-
     if (res.ok) {
       setStatus('¡Mensaje enviado con éxito!');
       setName('');

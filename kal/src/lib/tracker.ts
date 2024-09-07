@@ -6,7 +6,7 @@ interface Visit {
   timestamp: Date;
 }
 
-let visits: Visit[] = [];
+const visits: Visit[] = [];
 
 export function trackVisit(req: NextRequest) {
   const country = req.geo?.country || 'Unknown';
@@ -38,8 +38,8 @@ export function getVisitStats() {
 
 function countVisits(since: Date) {
   const relevantVisits = visits.filter(v => v.timestamp >= since);
-  const countryCounts = {};
-  const languageCounts = {};
+  const countryCounts: Record<string, number> = {};
+  const languageCounts: Record<string, number> = {};
 
   relevantVisits.forEach(visit => {
     countryCounts[visit.country] = (countryCounts[visit.country] || 0) + 1;

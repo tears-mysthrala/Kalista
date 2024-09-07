@@ -8,7 +8,7 @@ export default async function handler(
   if (req.method === 'POST') {
     const { name, email, message } = req.body
 
-    let transporter = nodemailer.createTransport({
+    const transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
       port: 587,
       secure: false,
